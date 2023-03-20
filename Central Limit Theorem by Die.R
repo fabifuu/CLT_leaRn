@@ -127,3 +127,9 @@ z_all |> group_by(prob, round) |>
   theme_bw() +
   facet_wrap(vars(prob))
 ggsave("./CLT/Sum of Multiple Probablity.png", width = 9, height = 6, units = "in")
+
+# Mean, Variance, Std
+z_all |> group_by(prob) |> 
+  summarize(mean = mean(result),
+            variance = var(result),
+            sd = sd(result))
